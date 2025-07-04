@@ -1,0 +1,67 @@
+ Loaded 20 rows and 16 columns.
+
+ PII detected based on COLUMN NAMES:
+
+
+Column: first_name
+ - Column name suggests name
+ - High uniqueness ratio (1.00)
+
+Column: last_name
+ - Column name suggests name
+ - High uniqueness ratio (1.00)
+
+Column: email
+ - Column name suggests email
+ - High uniqueness ratio (1.00)
+
+Column: phone
+ - Column name suggests phone
+ - High uniqueness ratio (1.00)
+
+Column: address
+ - Column name suggests address
+ - High uniqueness ratio (1.00)
+
+Column: dob
+ - Column name suggests dob
+ - High uniqueness ratio (1.00)
+
+Column: ip_address
+ - Column name suggests address
+ - Column name suggests ip
+ - High uniqueness ratio (1.00)
+
+Column: credit_card_number
+ - Column name suggests credit_card
+
+Column: username
+ - Column name suggests name
+ - Column name suggests username
+ - High uniqueness ratio (1.00)
+
+Column: password
+ - Column name suggests password
+ - High uniqueness ratio (1.00)
+
+Column: transaction_id
+ - High uniqueness ratio (1.00)
+
+Column: signup_date
+ - High uniqueness ratio (1.00)
+
+Column: comments
+ - High uniqueness ratio (1.00)
+
+ PII detected based on DATA CONTENT:
+
+
+Column: Notes
+ - Regex matches phone (2/20)
+ - Regex matches ssn (2/20)
+
+ Cleaned data saved to:
+ C:/Users/rpentako/Downloads/IRA/PII_Data/Output/data_redacted.csv
+ C:/Users/rpentako/Downloads/IRA/PII_Data/Output/data_redacted.xlsx
+ Detection log saved to:
+ C:/Users/rpentako/Downloads/IRA/PII_Data/Output/pii_detection_log.txt
