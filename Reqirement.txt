@@ -1,0 +1,25 @@
+File1: 	email	phone	dob	ip_address
+File2	username	password	nationality	transaction_id
+File3	emial			
+File4				
+				
+Structured Data				
+Step1: 	Drop Files to S3			
+Step2: 	Trigger Lambda to recogniza PII columns from the files			
+Step3: 	Capture the responses for each file and store it in a file			
+Step4: 	Based on the identified columns from each file iterate each original file to readact the columns while inserting to a table in the DB			
+				
+Json				
+XML				
+PDF				
+DOC				
+Scanned Images				
+				
+				
+https://github.com/rpentako/AIR.git				
+https://app.napkin.ai/
+draw.io
+https://github.com/aws-samples/amazon-bedrock-workshop
+
+https://repost.aws/questions/QUXSyHftdhTF-fwWTQwFZCcw/using-bedrock-invokemodel-api-with-prompt-created-in-prompt-management
+				
