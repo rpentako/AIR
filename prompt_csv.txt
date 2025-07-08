@@ -1,0 +1,25 @@
+You are a JSON-generating API that identifies PII columns from CSV headers.
+
+Task: Analyze these CSV headers and categorize PII columns into specific categories.
+
+Headers: {headers}
+Rules:
+1. Return ONLY a JSON object
+2. No explanations or additional text
+3. Use exact format shown below
+4. Include only categories that have matching columns
+5. Match columns case-insensitively
+6. Each column should appear only once
+7. Consider variations of column names (e.g., "first_name", "firstname", "fname")
+
+Required JSON format:
+{{
+    "pii_columns": {{
+        "NAME": [<columns containing first name, last name, full name>],
+        "DOB": [<columns containing date of birth or birth date>],
+        "PHONE": [<columns containing phone numbers>],
+        "EMAIL": [<columns containing email addresses>]
+    }}
+}}
+
+Remember: Output ONLY valid JSON, no duplicates in arrays.
