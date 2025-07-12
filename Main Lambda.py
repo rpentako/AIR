@@ -80,14 +80,15 @@ def process_bedrock_response(response_stream):
 def lambda_handler(event, context):
     bedrock_runtime = get_bedrock_client()
     s3 = boto3.client('s3')
-    
+    print(event)
     try:
         # Read the prompt template
         prompt_template = read_prompt_template()
         
         bucket = "datamaskingpoc"
         key = "csv/IN/sample_data1.csv"
-        
+        output_file = 'sample_data1.csv'
+        output_path = 'csv/out/'
         response = s3.get_object(Bucket=bucket, Key=key)
         content = response['Body'].read().decode('utf-8')
         
@@ -97,7 +98,7 @@ def lambda_handler(event, context):
         
         # Format the prompt with the headers
         prompt = prompt_template.format(headers=headers)
-
+        print(prompt)
         bedrock_response = bedrock_runtime.invoke_model_with_response_stream(
             modelId='us.anthropic.claude-3-5-sonnet-20241022-v2:0',
             contentType='application/json',
@@ -113,6 +114,7 @@ def lambda_handler(event, context):
             })
         )
         
+        print(bedrock_response)
         full_response = process_bedrock_response(bedrock_response)
         
         if not full_response:
@@ -133,7 +135,14 @@ def lambda_handler(event, context):
             }
         
         print("PII Analysis:", json.dumps(pii_analysis, indent=2))
-        
+        ll = []
+        # print(pii_analysis['pii_columns'])
+        i = pii_analysis['pii_columns']
+        # print(i)
+        for key,value in i.items():
+            ll.extend(i[key])
+        # ll.ex(,i['DOB'],i['PHONE'],i['EMAIL'])
+        print("csv",ll)
         return {
             'statusCode': 200,
             'body': json.dumps({
